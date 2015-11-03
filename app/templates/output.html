@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="container">
+      <div class="starter-template">
+      <h4>{% print('Top '+ num + ' matches for: ') %}</h4>
+      <h3>{% print('"' + sentence + '"') %}</h3>
+      <!--<p class="lead">Below is the result of your query.<br> You just took user input and looked up the information.  Now we need to expand the functionality!</p> -->
+      </div>
+      
+      <table class="table table-hover">
+      <tr><th>Citation</th><th>Match (%)</th></tr>
+      {% for index, row in citations.iterrows() %}
+      <tr><td>{{ row['Citation'] }} </td><td>{{ row['probability'] }}</td></tr>
+      {% endfor %}
+      </table>
+
+      </div><!--/.container-->
+    </section>         
+      
+      
+      <script scr="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+      <script scr="static/js/bootstrap.min.js"></script>
+      <script> 
+      window.onload = function (event) {
+        window.location.hash = "#results";
+      };
+      </script>
+    </div><!-- /.container -->
+ {% endblock %}
+ 
